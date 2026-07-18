@@ -1,0 +1,16 @@
+<div>
+<p>course-card works!</p>
+
+
+<div class="card">
+  
+<p>Name: {{ course.name }}</p>
+  <p>ID: {{ course.id }}</p>
+  <p>Code: {{ course.code }}</p>
+  <p>Credits: {{ course.credits }}</p>
+
+  <button (click)="enrollRequested.emit(course.id)">
+    Enroll
+  </button>
+</div>
+</div>
