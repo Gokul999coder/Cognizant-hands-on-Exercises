@@ -1,0 +1,137 @@
+<h2>Student Enrollment Form</h2>
+
+<form
+  #enrollForm="ngForm"
+  (ngSubmit)="onSubmit(enrollForm)"
+>
+
+  <div>
+  <label>Name:</label>
+
+  <input
+    type="text"
+    name="studentName"
+    [(ngModel)]="studentName"
+    #nameCtrl="ngModel"
+    required
+    minlength="3"
+  >
+
+  <span
+    *ngIf="nameCtrl.touched && nameCtrl.errors?.['required']"
+  >
+    Name is required
+  </span>
+
+  <span
+    *ngIf="nameCtrl.touched && nameCtrl.errors?.['minlength']"
+  >
+    Name must be at least 3 characters
+  </span>
+
+</div>
+<br>
+
+   <div>
+  <label>Email:</label>
+
+  <input
+    type="email"
+    name="studentEmail"
+    [(ngModel)]="studentEmail"
+    #emailCtrl="ngModel"
+    required
+    email
+  >
+
+  <span
+    *ngIf="emailCtrl.touched && emailCtrl.errors?.['required']"
+  >
+    Email is required
+  </span>
+
+  <span
+    *ngIf="emailCtrl.touched && emailCtrl.errors?.['email']"
+  >
+    Invalid email format
+  </span>
+
+</div>
+
+  <br>
+
+  <div>
+  <label>Course ID:</label>
+
+  <input
+    type="number"
+    name="courseId"
+    [(ngModel)]="courseId"
+    #courseCtrl="ngModel"
+    required
+  >
+
+  <span
+    *ngIf="courseCtrl.touched && courseCtrl.errors?.['required']"
+  >
+    Course ID is required
+  </span>
+
+</div>
+
+  <br>
+
+  <div>
+    <label>Semester:</label>
+
+    <select
+      name="preferredSemester"
+      [(ngModel)]="preferredSemester"
+      required
+    >
+      <option value="">Select</option>
+      <option value="Odd">Odd</option>
+      <option value="Even">Even</option>
+    </select>
+  </div>
+
+  <br>
+
+  <div>
+
+  <input
+    type="checkbox"
+    name="agreeToTerms"
+    [(ngModel)]="agreeToTerms"
+    #termsCtrl="ngModel"
+    required
+  >
+
+  <label>I Agree To Terms</label>
+
+  <span
+    *ngIf="termsCtrl.touched && !agreeToTerms"
+  >
+    You must accept the terms
+  </span>
+
+</div>
+  <br>
+  <div *ngIf="submitted">
+  Enrollment request submitted successfully!
+</div>
+
+  <button
+    type="submit"
+    [disabled]="enrollForm.invalid"
+  >
+    Submit
+  </button>
+  
+<button
+  type="button"
+  (click)="enrollForm.resetForm()"
+>
+  Reset
+</button>
+</form>

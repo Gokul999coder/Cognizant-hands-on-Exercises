@@ -1,0 +1,26 @@
+
+<h1>Welcome to {{ portalName }}</h1>
+
+
+<p>
+  Manage your courses, monitor your academic progress, and explore available
+  learning resources.
+</p>
+
+<div class="stats">
+  
+
+  <div>Courses Available: <strong>12</strong></div>
+
+  <div>Enrolled: <strong>3</strong></div>
+
+  <div>GPA: <strong>3.8</strong></div>
+  <br />
+  <p>Available Courses: {{ availableCourses }}</p>
+  <div>New Course:<button (click)="onEnrollClick()" [disabled]='!isPortalActive'>ENROLL NOW</button></div>
+
+  <p>{{message}}</p>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search Courses" />
+  <p>Searching for : {{searchTerm}}</p>
+<app-course-summary-widget></app-course-summary-widget>
+</div>

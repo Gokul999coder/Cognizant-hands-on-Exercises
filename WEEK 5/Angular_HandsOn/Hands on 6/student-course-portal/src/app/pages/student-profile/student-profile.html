@@ -1,0 +1,12 @@
+<p>student-profile works!</p>
+<h2>Enrolled Courses</h2>
+
+<div
+  *ngFor="
+  let course of
+  enrollmentService.getEnrolledCourses()
+">
+
+  <p>{{ course.name }}</p>
+
+</div>
