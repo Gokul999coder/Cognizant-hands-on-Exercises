@@ -1,0 +1,34 @@
+<div
+  class="card"
+  appHighlight="lightblue"
+
+  (click)="openCourse()"
+  [ngStyle]="{ 'border-left': '6px solid ' + getBorderColor() }"
+>
+  <h3>{{ course.name }}</h3>
+
+  <p>ID: {{ course.id }}</p>
+
+  <p>Code: {{ course.code }}</p>
+  <p>
+    Credits:
+    {{ course.credits | creditLabel }}
+  </p>
+  <div [ngSwitch]="course.gradeStatus">
+    <span *ngSwitchCase="'passed'" style="color: green"> Passed </span>
+
+    <span *ngSwitchCase="'failed'" style="color: red"> Failed </span>
+
+    <span *ngSwitchCase="'pending'" style="color: gray"> Pending </span>
+  </div>
+
+  <button (click)="toggleEnrollment(); $event.stopPropagation()">
+    {{ (enrolledIds$ | async)?.includes(course.id) ? 'Unenroll' : 'Enroll' }}
+  </button>
+<!-- 
+  <button (click)="toggleDetails()">Show Details</button> -->
+
+  <!-- <div *ngIf="isExpanded">
+    <p>Extra Course Information</p>
+  </div> -->
+</div>
