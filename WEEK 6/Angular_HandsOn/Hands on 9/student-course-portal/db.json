@@ -1,0 +1,35 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "name": "Angular",
+      "code": "ANG101",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": "2",
+      "name": "Java",
+      "code": "JAVA201",
+      "credits": 3,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": "lxQgxB15K4E",
+      "name": "C++",
+      "code": "C101",
+      "credits": 7,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": "4",
+      "name": ".NET",
+      "code": "N090",
+      "credits": 0,
+      "gradeStatus": "pending"
+    }
+  ],
+  "students": [],
+  "enrollments": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
